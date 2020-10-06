@@ -1,4 +1,4 @@
-This folder contains two data structures for range searching
+This folder contains implementation of two data structures for efficient range searching:
  1) bst for 1d range searching
  2) 2-dimensional range trees for orthogonal range searching
  2) 2-dimensional range trees for orthogonal range searching with fractional cascading
