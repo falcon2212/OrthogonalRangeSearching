@@ -36,7 +36,6 @@ int main()
 		for (int i = 0; i < v.size(); ++i)
 		{
 			vis[{v[i].x, v[i].y}] = 1; 
-			// printf("%f %f \n",v[i].x, v[i].y );
 		}
 	}
 	cout<<n<<endl;
