@@ -6,17 +6,6 @@ using namespace std;
 
 #define ss second
 #define ff first
-#define tr(...) cerr<<__FUNCTION__<<' '<<__LINE__<<" = ";trace(#__VA_ARGS__, __VA_ARGS__)
-template<typename S, typename T> 
-ostream& operator<<(ostream& out,pair<S,T> const& p){out<<'('<<p.ff<<", "<<p.ss<<')';return out;}
-template<typename T>
-ostream& operator<<(ostream& out,vector<T> const& v){
-int l=v.size();for(int i=0;i<l-1;i++)out<<v[i]<<' ';if(l>0)out<<v[l-1];return out;}
-template<typename T>
-void trace(const char* name, T&& arg1){cout<<name<<" : "<<arg1<<endl;}
-template<typename T, typename... Args>
-void trace(const char* names, T&& arg1, Args&&... args){
-const char* comma = strchr(names + 1, ',');cout.write(names, comma-names)<<" : "<<arg1<<" | ";trace(comma+1,args...);}
 
 
 const long long OO = 1e18;
