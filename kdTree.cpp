@@ -122,7 +122,6 @@ void kdTree::build(vector<data>& a, vector<data>& b, int depth, kdTreeNode* &roo
 		vector<data> lefty, righty;
 		data dt;
 		data median;
-		// map<int, bool> vis;
 		if(depth&1){
 			median = b[m];
 			for(int i = 0; i <= r; i++){
@@ -165,11 +164,8 @@ void kdTree::build(vector<data>& a, vector<data>& b, int depth, kdTreeNode* &roo
 			leftBoundary = {ln, median.pc, un, dn};
 			rightBoundary = {median.pc, rn, un, dn};
 		} 
-		// tr(median.pc, median.sc);
-		// tr(l, r, m, left.size(), right.size(), a.size(), b.size(), depth);
 		root = new kdTreeNode(ln, rn, un, dn, median);
 		root->size = a.size();
-		// int tmp; scanf("%d\n", &tmp);
 		build(left, lefty, depth+1, root->left, leftBoundary);
 		build(right, righty, depth+1, root->right, rightBoundary);
 	}
@@ -190,11 +186,9 @@ vector<data> reportSubTree(kdTreeNode* root){
 }
 // returns true if a lies completly with in b
 bool liesWithIn(vector<double> a, vector<double> b){
-	// tr(a, b, (max(a[0], b[0]) <= min(a[1], b[1])));
 	return a[0] >= b[0] && a[1] <= b[1] && a[2] <= b[2] && a[3] >= b[3];
 }
 bool intersect(vector<double> a, vector<double> b){
-	// tr(a, b, (max(a[0], b[0]) <= min(a[1], b[1])));
 	return (max(a[0], b[0]) <= min(a[1], b[1])) && (max(a[3], b[3]) <= min(a[2], b[2]));
 }
 vector<data> kdTree::query(kdTreeNode* root, pair<double, double> pcRange, pair<double, double> scRange){
@@ -216,7 +210,6 @@ vector<data> kdTree::query(kdTreeNode* root, pair<double, double> pcRange, pair<
 		if(v->right != NULL)
 			right = v->right->getRegion();
 		vector<data> ans;
-		// tr(curr, left, right, qry, intersect(left, qry));
 		if(liesWithIn(left, qry)){
 			vector<data> t = reportSubTree(v->left);
 			for(int i = 0; i < (int)t.size(); i++)
