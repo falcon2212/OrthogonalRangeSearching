@@ -6,17 +6,6 @@ using namespace std;
 #include <map>
 #define ss second
 #define ff first
-#define tr(...) cerr<<__FUNCTION__<<' '<<__LINE__<<" = ";trace(#__VA_ARGS__, __VA_ARGS__)
-template<typename S, typename T> 
-ostream& operator<<(ostream& out,pair<S,T> const& p){out<<'('<<p.ff<<", "<<p.ss<<')';return out;}
-template<typename T>
-ostream& operator<<(ostream& out,vector<T> const& v){
-int l=v.size();for(int i=0;i<l-1;i++)out<<v[i]<<' ';if(l>0)out<<v[l-1];return out;}
-template<typename T>
-void trace(const char* name, T&& arg1){cout<<name<<" : "<<arg1<<endl;}
-template<typename T, typename... Args>
-void trace(const char* names, T&& arg1, Args&&... args){
-const char* comma = strchr(names + 1, ',');cout.write(names, comma-names)<<" : "<<arg1<<" | ";trace(comma+1,args...);}
 
 const int INF = 1e9;
 bool compSC(data a, data b){
@@ -35,22 +24,18 @@ rangeTreeNode::~rangeTreeNode(){
 rangeTreeNode::rangeTreeNode(const data& v){
 	value = v;
 	isLeaf = false;
-	// Tassoc = bst({value}, 2);
-	// TassocRoot = &(*(Tassoc.root));
 }
 rangeTreeNode* rangeTree::findSplitNode(int l, int r){
 	rangeTreeNode *v = root;
 	data pcv = (v->value);
 	data L(l, -1*INF), R(r, INF);
 	while(!(v->isLeaf) && (R <= pcv || L > pcv)){
-		// printf("rangetree findSplitNode %d %d %d %d\n",l,r,pcv.pc, pcv.sc );
 		if(R <= pcv)
 			v = v->left;
 		else
 			v = v->right;
 		pcv = (v->value);
 	}
-	// printf("RT %d, %ddone\n",pcv.pc, pcv.sc );
 	return v;  
 }
 rangeTree::rangeTree(std::vector<data> p, int pc, int sc){
@@ -92,7 +77,6 @@ void rangeTree::build(std::vector<data>& a, std::vector<data>& b, rangeTreeNode*
 		// partitioning the point set based on secondary coordinate
 		std::vector<data> leftPC, rightPC;
 		std::vector<data> leftSC, rightSC;
-		// std::map<int, bool> vis;
 		for(int i = 0; i <= r; i++){
 			if(i <= m){
 				vis[a[i].id] = true;
