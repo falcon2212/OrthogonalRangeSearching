@@ -1,9 +1,10 @@
-This folder contains implementation of two data structures for efficient range searching:
- 1) bst for 1d range searching
- 2) 2-dimensional range trees for orthogonal range searching
- 2) 2-dimensional range trees for orthogonal range searching with fractional cascading
- 3) 2-dimensional KD tree for orthogonal range searching
-The '.h' files contain the design of the implementation as in function definitions and their signature, '.cpp' files contain the actual implementation of the code.
+This folder contains implementation of data structures for efficient range searching:
+ 1) bst for one-dimensional range searching.
+ 2) two-dimensional range trees for orthogonal range searching.
+ 3) two-dimensional range trees for orthogonal range searching with fractional cascading.
+ 4) two-dimensional KD tree for orthogonal range searching.
+The folder also contains the '.py' files that describe the implementation of GUI, GUI was designed to let the user selcect arbitrary points on the canvas and select arbitrary query rectangles, and view the output of range query.  
+The '.h' files contain the design of the implementation as in the function definitions and their signature, '.cpp' files contain the actual implementation of the functions.
 
 Code for representing data is in - "data.h" and "data.cpp"
 Code for one dimensional bst is in - "bst.h" and "bst.cpp"
@@ -63,5 +64,6 @@ Experimental Ananlysis: Please find the details in report.pdf
 How to test?, In oreder to run this code you need to have following software installed
 -> pygame python library
 -> bash shell
+-> gcc compiler
 $ bash ./test.sh
 running the above command will execute the software, the file "test.sh" is properly commented for you to modify and play around with various data structures.
